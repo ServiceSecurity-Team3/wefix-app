@@ -7,6 +7,7 @@ ruby '2.5.1'
 gem 'puma'
 gem 'roda'
 gem 'slim'
+gem 'bootstrap'
 
 # Configuration
 gem 'econfig'

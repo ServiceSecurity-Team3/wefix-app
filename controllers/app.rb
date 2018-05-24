@@ -14,12 +14,16 @@ module Wefix
 
     ONE_MONTH = 30 * 24 * 60 * 60
 
-    use Rack::Session::Cookie,
-        expire_after: ONE_MONTH,
-        secret: config.SESSION_SECRET
     route do |routing|
       routing.assets
     end
+
+    use Rack::Session::Cookie,
+        expire_after: ONE_MONTH,
+        secret: config.SESSION_SECRET
+      
+
+
     route do |routing|
       @current_account = session[:current_account]
 
