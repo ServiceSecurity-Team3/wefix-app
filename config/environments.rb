@@ -33,7 +33,7 @@ module Wefix
     end
 
     configure :production do
-      use Rack::SslEnforcer, :hsts => true
+      use Rack::SslEnforcer, hsts: true
 
       use Rack::Session::Redis,
           expire_after: ONE_MONTH, redis_server: App.config.REDIS_URL
