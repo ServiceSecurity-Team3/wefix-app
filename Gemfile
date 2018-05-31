@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 ruby '2.5.1'
 
 # Web
+gem 'bootstrap'
 gem 'puma'
 gem 'roda'
 gem 'slim'
-gem 'bootstrap'
 
 # Configuration
 gem 'econfig'
