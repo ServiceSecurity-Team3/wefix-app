@@ -12,7 +12,9 @@ module Wefix
     plugin :multi_route
     plugin :flash
 
+ 
     ONE_MONTH = 30 * 24 * 60 * 60
+
 
     route do |routing|
       routing.assets
@@ -25,7 +27,7 @@ module Wefix
 
 
     route do |routing|
-      @current_account = session[:current_account]
+      @current_account = SecureSession.new(session).get(:current_account)
 
       routing.public
       routing.assets
