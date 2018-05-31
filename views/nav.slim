@@ -5,14 +5,14 @@ nav class="navbar navbar-dark navbar-expand-lg"
     span class="navbar-toggler-icon"
   div class="collapse navbar-collapse" id="navbarTogglerDemo02"
     ul class="navbar-nav ml-auto mt-2 mt-lg-0"
-      - if @current_account
+      - if @current_user.logged_in?
         li
           a href = "/projects" projects
         li class = "dropdown"
-          a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" = "#{@current_account['username']}"
+          a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" = "#{@current_user.username}"
           ul class=-"dropdown-menu"
             li
-              a href="/account/#{@current_account['username']}" account
+              a href="/account/#{@current_user.username}" account
             li
               a href='/auth/logout' logout
       - else
@@ -23,3 +23,4 @@ nav class="navbar navbar-dark navbar-expand-lg"
         li class="nav-item"
           a class="nav-link" href="#" Another
           
+
