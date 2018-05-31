@@ -7,7 +7,7 @@ module Wefix
   # Base class for Wefix Web Application
   class App < Roda
     plugin :render, engine: 'slim', views: 'views'
-    plugin :assets, css: 'style.css', path: 'assets'
+    plugin :assets, css: ['style.css', 'navbar.css', 'social_media.css'] , path: 'assets'
     plugin :public, root: 'public'
     plugin :multi_route
     plugin :flash
