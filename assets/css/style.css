@@ -1,3 +1,7 @@
+.presentation-page .page-header {
+  height: 90ch; 
+  overflow: hidden;
+}
 a, a:focus, a:hover, a:active {
   color: white;
   text-decoration: none;
@@ -13,6 +17,8 @@ margin: 0 auto;
 overflow: visible;
 padding-left: 150px;
 padding-right: 150px;
+z-index: 2;
+position: relative;
 }
 
 .left {
@@ -25,13 +31,13 @@ padding-top: 20px;
 padding-bottom: 20px;
 }
 
-.first-section {
+.page-header {
 position: fixed;
 width: 100%;
 height: 100%;
 }
 
-.first-section img{
+.page-header img{
 width: inherit;
 height: 100%;
 opacity: 0.7;
@@ -128,4 +134,20 @@ text-align: center;
   background-color: transparent;
   box-shadow: none!important;
   padding: 10px;
+}
+
+.page-header {
+  background-image: url(https://taipeiphotography.files.wordpress.com/2013/11/green-101.jpg);
+  transform: translate3d(0px, 0px, 0px);
+  height: 100vh;
+  background-position: 50%;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.header-filter {
+  position: relative;
 }
