@@ -12,9 +12,7 @@ module Wefix
     plugin :multi_route
     plugin :flash
 
- 
     ONE_MONTH = 30 * 24 * 60 * 60
-
 
     route do |routing|
       routing.assets
@@ -23,11 +21,9 @@ module Wefix
     use Rack::Session::Cookie,
         expire_after: ONE_MONTH,
         secret: config.SESSION_SECRET
-    
-
 
     route do |routing|
-      @current_account = SecureSession.new(session).get(:current_account)
+      @current_user = Session.new(SecureSession.new(session)).get_user
 
       routing.public
       routing.assets
@@ -35,7 +31,7 @@ module Wefix
 
       # GET /
       routing.root do
-        view 'home', locals: { current_account: @current_account }
+        view 'home', locals: { current_user: @current_user }
       end
     end
   end
