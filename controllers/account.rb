@@ -3,7 +3,7 @@
 require 'roda'
 
 module Wefix
-  # Web controller for Wefix
+  # Web controller for WEFIX API
   class App < Roda
     # rubocop:disable Metrics/BlockLength
     route('account') do |routing|
