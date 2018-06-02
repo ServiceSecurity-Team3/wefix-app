@@ -4,7 +4,7 @@
 require 'http'
 
 # Returns all projects belonging to an account
-class GetAllProjects
+class GetAllGroups
   def initialize(config)
     @config = config
   end
