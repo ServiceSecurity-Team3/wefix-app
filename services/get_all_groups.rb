@@ -3,7 +3,7 @@
 
 require 'http'
 
-# Returns all projects belonging to an account
+# Returns all groups belonging to an account
 class GetAllGroups
   def initialize(config)
     @config = config
@@ -11,7 +11,7 @@ class GetAllGroups
 
   def call(user)
     response = HTTP.auth("Bearer #{user.auth_token}")
-                   .get("#{@config.API_URL}/projects")
+                   .get("#{@config.API_URL}/groups")
     response.code == 200 ? response.parse : nil
   end
 end
