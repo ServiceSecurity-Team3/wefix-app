@@ -1,9 +1,179 @@
-h1 Welcome to Wefix
-p This site allows you to store your development and testing configuration files to share with teammates.
-  
-p
-  i Please avoid sharing production configuration at this point.
+section#home.s-home.target-section data-image-src="/assets/images/hero-bg.jpg" data-natural-height="2000" data-natural-width="3000" data-parallax="scroll" data-position-y="top" 
+  .overlay
+  .shadow-overlay
+  .home-content
+    .row.home-content__main
+      h3 Welcome to Wefix
+      h1
+        | We are a creative group
+        br/
+        | of people who design a platform
+        br/
+        | to solve problems around Taiwan 
+      .home-content__buttons
+        a.btn.btn--stroke href="/auth/login" 
+          | Start
+        a.smoothscroll.btn.btn--stroke href="#about" 
+          | More About Us
+    .home-content__scroll
+      a.scroll-link.smoothscroll href="#about" 
+        span Scroll Down
+    .home-content__line
+  /! end home-content
+  ul.home-social
+    li
+      a href="#0" 
+        i.fa.fa-facebook aria-hidden="true" 
+        span Facebook
+    li
+      a href="#0" 
+        i.fa.fa-twitter aria-hidden="true" 
+        span Twiiter
+    li
+      a href="#0" 
+        i.fa.fa-instagram aria-hidden="true" 
+        span Instagram
+section#about.s-about
+  .row.section-header.has-bottom-sep data-aos="fade-up" 
+    .col-full
+      h3.subhead.subhead--dark Hello There
+      h1.display-1.display-1--light We Are Wefix!
+  .row.about-desc data-aos="fade-up" 
+    .col-full
+      p
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.
+  .row.about-stats.stats.block-1-4.block-m-1-2.block-mob-full data-aos="fade-up" 
+    .col-block.stats__col
+      .stats__count 127
+      h5 Groups Created
+    .col-block.stats__col
+      .stats__count 3
+      h5 Developers
+    .col-block.stats__col
+      .stats__count 1099
+      h5 Problems Created
+    .col-block.stats__col
+      .stats__count 5
+      h5 Happy Clients
+  .about__line
 
-- if current_user.logged_out?
-  p 
-    a href='/auth/login' login to start!
+section#services.s-services
+  .row.section-header.has-bottom-sep data-aos="fade-up" 
+    .col-full
+      h3.subhead What We Do
+  /! end section-header
+  .row.services-list.block-1-2.block-tab-full
+    .col-block.service-item data-aos="fade-up" 
+      .service-icon
+        i.icon-paint-brush
+      .service-text
+        h3.h2 Identify Problems 
+        p
+          | Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.
+          | Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+          | Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+    .col-block.service-item data-aos="fade-up" 
+      .service-icon
+        i.icon-group
+      .service-text
+        h3.h2 Organize People
+        p
+          | Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.
+          | Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+          | Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+    .col-block.service-item data-aos="fade-up" 
+      .service-icon
+        i.icon-megaphone
+      .service-text
+        h3.h2 Create Events
+        p
+          | Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.
+          | Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+          | Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+    .col-block.service-item data-aos="fade-up" 
+      .service-icon
+        i.icon-earth
+      .service-text
+        h3.h2 Build a better world
+        p
+          | Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.
+          | Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+          | Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+    .col-block.service-item data-aos="fade-up" 
+      .service-icon
+        i.icon-cube
+      .service-text
+        h3.h2 Analize Data
+        p
+          | Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.
+          | Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+          | Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+    .col-block.service-item data-aos="fade-up" 
+      .service-icon
+        i.icon-lego-block
+      .service-text
+        h3.h2 Development Tools
+        p
+          | Nemo cupiditate ab quibusdam quaerat impedit magni. Earum suscipit ipsum laudantium.
+          | Quo delectus est. Maiores voluptas ab sit natus veritatis ut. Debitis nulla cumque veritatis.
+          | Sunt suscipit voluptas ipsa in tempora esse soluta sint.
+
+section#team.s-team
+  .row.section-header data-aos="fade-up" 
+    .col-full
+      h3.subhead Our Team
+      h1.display-2
+        | Wefix has a great team 
+
+  div class="container" data-aos="fade-up" 
+    div class="row"
+      div class="col-sm-4"
+        .team
+          .team-img
+            img.img-responsive alt="" src="/assets/images/team/aida.jpg" /
+            .overlay
+              .team-social
+                a href="#" 
+                  i.fa.fa-facebook
+                a href="#" 
+                  i.fa.fa-google-plus
+                a href="#" 
+                  i.fa.fa-twitter
+          .team-content
+            h3 Aida Haliti
+            span Web Developer
+
+      div class="col-sm-4"
+        .team
+          .team-img
+            img.img-responsive alt="" src="/assets/images/team/elona.jpg" /
+            .overlay
+              .team-social
+                a href="#" 
+                  i.fa.fa-facebook
+                a href="#" 
+                  i.fa.fa-google-plus
+                a href="#" 
+                  i.fa.fa-twitter
+          .team-content
+            h3 Elona Shatri
+            span Web Developer
+
+      div class="col-sm-4"
+        div class="col-sm-4"
+        .team
+          .team-img
+            img.img-responsive alt="" src="/assets/images/team/abner.jpg" /
+            .overlay
+              .team-social
+                a href="#" 
+                  i.fa.fa-facebook
+                a href="#" 
+                  i.fa.fa-google-plus
+                a href="#" 
+                  i.fa.fa-twitter
+          .team-content
+            h3 Abner Tellez
+            span Web Developer
+
+
