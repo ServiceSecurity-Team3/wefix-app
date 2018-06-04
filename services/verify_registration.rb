@@ -11,13 +11,16 @@ module Wefix
       @config = config
     end
 
-    def call(registration_data)
-      registration_token = SecureMessage.encrypt(registration_data)
-      registration_data['verification_url'] =
-        "#{@config.APP_URL}/auth/register/#{registration_token}"
+    def call(username:, email:)
+      registration_token = SecureMessage.encrypt({username: username, email: email});
+      verification_url = "#{@config.APP_URL}/auth/register/#{registration_token}"
 
       response = HTTP.post("#{@config.API_URL}/auth/register",
-                           json: registration_data)
+                           json: {
+                             username: username,
+                             email: email,
+                             verification_url: verification_url
+                           })
 
       raise(RegistrationVerificationError) unless response.code == 201
       response.parse

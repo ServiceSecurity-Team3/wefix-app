@@ -3,7 +3,7 @@
 require 'roda'
 
 module Wefix
-  # Web controller for WEFIX API
+  # Web controller for Wefix API
   class App < Roda
     # rubocop:disable Metrics/BlockLength
     route('account') do |routing|
@@ -17,10 +17,17 @@ module Wefix
           end
         end
 
+        # POST /account/[registration_token] -- finishes registration process
         routing.post String do |registration_token|
-          raise 'Passwords do not match or empty' if
-            routing.params['password'].empty? ||
-            routing.params['password'] != routing.params['password_confirm']
+          # raise 'Passwords do not match or empty' if
+          #   routing.params['password'].empty? ||
+          #   routing.params['password'] != routing.params['password_confirm']
+
+          passwords = Form::Passwords.call(routing.params)
+          if passwords.failure?
+            flash[:error] = Form.message_values(passwords)
+            routing.redirect "/auth/register/#{registration_token}"
+          end
 
           new_account = SecureMessage.decrypt(registration_token)
           CreateAccount.new(App.config).call(
@@ -32,7 +39,9 @@ module Wefix
           routing.redirect '/auth/login'
         rescue CreateAccount::InvalidAccount => error
           flash[:error] = error.message
-          routing.redirect '/auth/register'
+          routing.redirect(
+            "#{App.config.APP_URL}/auth/register/#{registration_token}"
+          )
         rescue StandardError => error
           flash[:error] = error.message
           routing.redirect(

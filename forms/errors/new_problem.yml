@@ -1,0 +1,7 @@
+en:
+  errors:
+    description: 'provide a description'
+    latitude_valid?: 'latitude has illegal characters'
+    latitude: 'provide latitude for document'
+    longitude_valid?: 'longitude has illegal characters'
+    longitude: 'provide longitude for document'

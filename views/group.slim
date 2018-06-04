@@ -1,0 +1,56 @@
+h2
+  == "#{group.name}"
+
+dl
+  div class="row"
+    div class="col-xs-3"
+      dt Group:
+
+div class="row"
+  div class="col-lg-9"
+    div class="row"
+      table class="table"
+        thead
+          tr
+            th Description
+        tbody
+          - group.problems.each do |problem|
+            tr
+              td #{problem.description}
+    div class="row"
+      div class="col-xs-4"
+        - if group.policies.can_add_probelms
+          button type="button" class="btn btn-success" data-toggle="modal" data-target="#newProblemModal" + New Problem
+    div class="row" style="height:10px;"
+  div class="col-lg-3"
+    div class="panel panel-default"
+      div class="panel-heading" Collaborators
+      div class="panel-body"
+        - if group.collaborators.empty?
+          span class="small" There are no collaborators yet
+        ul class="list-group"
+          li class="list-group-item clearfix"
+              = group.owner.username
+          - group.collaborators.each do |collaborator|
+            li class="list-group-item clearfix"
+              '  #{collaborator.username}
+              - if group.policies.can_remove_collaborators
+                span class="pull-right"
+                  button type="button" class="btn btn-xs btn-default"
+                    span class="glyphicon glyphicon-remove"
+        - if group.policies.can_add_collaborators
+          button type="button" class="btn btn-success" data-toggle="modal" data-target="#newCollaboratorModal" + Add Collaborator
+
+include :problem_new_partial
+include :collaborator_new_partial
+
+.row
+  .text-center
+    - if group.policies.can_edit
+      a href="" edit group
+    - if group.policies.can_delete
+      == ' | '
+      a href="" delete group
+    - if group.policies.can_leave
+      == ' | '
+      a href="" leave group
