@@ -1,19 +1,47 @@
 doctype html
-html
+/![if lt IE 9 ] <html class="no-js oldie" lang="en"
+/![if IE 9 ] <html class="no-js oldie ie9" lang="en"
+/! [if (gte IE 9)|!(IE)]><!
+html.no-js lang="en" 
+  /! <![endif]
   head
+    meta charset="utf-8"
     title Wefix
-    
-    / Bootstrap CSS and theme (Cerulean Theme)
-    link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-fUMURLTdEcpeYHly3PAwggI3l2UvdHNg/I+8LRph7hLDcAZm77YfDx3Tjum9d3vK" crossorigin="anonymous"
-    / Custom CSS
-    == assets(:css)
-  body
-    / JQuery and Bootstrap JS
-    script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"
-    script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"
+    meta content="Service Security" name="description"
+    meta content="Team 3" name="author"
+    meta content="width=device-width, initial-scale=1" name="viewport"
 
-    == render :nav
-    div class='container' id='html_body'
-      section
-        == render :flash_bar
-        == yield
+    == assets(:css)
+    == assets(:js)
+    
+	  link href="favicon.ico" rel=("shortcut icon") type="image/x-icon" /
+    link href="favicon.ico" rel="icon" type="image/x-icon" /
+
+body#top class=(@smoothscroll ? '' : 'no-home')
+  == render :nav
+  div id='html_body'
+    section
+      == render :flash_bar
+      == yield
+  
+  #preloader
+    #loader
+      .line-scale-pulse-out
+        div
+        div
+        div
+        div
+        div
+
+  script src="/js/jquery-3.2.1.min.js" 
+  script src="/js/plugins.js" 
+  script src="/js/main.js"
+
+  footer
+    .row.footer-bottom
+      .col-twelve
+        .copyright
+          span © Copyright Colorlib / Wefix 2018
+        .go-top
+          a.smoothscroll href="#top" title=("Back to Top") 
+            i.icon-arrow-up aria-hidden="true" 

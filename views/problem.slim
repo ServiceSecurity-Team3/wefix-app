@@ -1,15 +1,16 @@
-h2 
-  a href="/groups/#{problem.group.id}" #{problem.group.name}
+div class="container"
+  h2 
+    a href="/groups/#{problem.group.id}" #{problem.group.name}
 
-dl
-  div class="row"
-    div class="col-xs-3"
-      dt Description:
-    div class="col-xs-9"
-      dd class="blockquote" #{problem.description}
-    div class="col-xs-3"
-      dt Location:
-    div class="col-xs-9"
-      dd class="blockquote" #{problem.latitude}
-    div class="col-xs-9"
-      dd class="blockquote" #{problem.longitude}
+  dl
+    div class="row"
+      div class="col-xs-3"
+        dt Description:
+      div class="col-xs-9"
+        dd class="blockquote" #{problem.description}
+      div class="col-xs-3"
+        dt Location:
+      div class="col-xs-9"
+        dd class="blockquote" #{problem.latitude}
+      div class="col-xs-9"
+        dd class="blockquote" #{problem.longitude}

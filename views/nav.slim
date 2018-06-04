@@ -1,31 +1,49 @@
-nav role="navigation" class="navbar navbar-default navbar-static-top"
-  div class="container-fluid"
-    div class="navbar-header"
-      button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"
-      span class="sr-only" Toggle navigation
-      span class="icon-bar"
-      span class="icon-bar"
-      span class="icon-bar"
-      a class="navbar-brand" rel="home" href="/" title="Securely Share Configurations"
-        img alt="Wefix" src="/logo.png" style="max-width:35px; margin-top: -7px;"
-      a class="navbar-brand" href="/" Wefix
-    div id="navbarCollapse" class="collapse navbar-collapse"
-      ul class="nav navbar-nav"
+header.s-header
+  .header-logo class=(@smoothscroll ? '' : 'negative')
+    a.site-logo href="/" 
+      img alt="Homepage" src="/assets/images/logo.png"
+  nav.header-nav
+    a.header-nav__close href="#0" title="close" 
+      span Close
+    .header-nav__content
+      h3 Wefix
+      ul.header-nav__list
+        li.current
+          a class=(@smoothscroll ? 'smoothscroll' : '') href="/#home" title="home"  Home
+        li
+          a class=(@smoothscroll ? 'smoothscroll' : '') href="/#about" title="about"  About
+        li
+          a class=(@smoothscroll ? 'smoothscroll' : '') href="/#services" title="team"  Services
+        li
+          a. class=(@smoothscroll ? 'smoothscroll' : '') href="/#works" title="works"  Works
+        li
+          a. class=(@smoothscroll ? 'smoothscroll' : '') href="/#team" title="team"  Team
+
+        hr
         - if @current_user.logged_in?
           li
             a href="/groups" Groups
-          li class="dropdown"
-            a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-              = "#{@current_user.username}"
-            ul class=-"dropdown-menu"
-              li
-                a href="/account/#{@current_user.username}" account
-              li
-                a href='/auth/logout' logout
+          li
+            a href="/account/#{@current_user.username}" Account
+          li
+            a href='/auth/logout' Logout
         - else
           li
-            a href='/auth/login' login
+            a href='/auth/login' Login
           li
-            a href='/auth/register' register
-          
+            a href='/auth/register' Register
 
+      ul.header-nav__social
+        li
+          a href="#" 
+            i.fa.fa-facebook
+        li
+          a href="#" 
+            i.fa.fa-twitter
+        li
+          a href="#" 
+            i.fa.fa-instagram
+
+  a.header-menu-toggle class=(@smoothscroll ? '' : 'opaque') href="#0" 
+    span.header-menu-text Menu
+    span.header-menu-icon

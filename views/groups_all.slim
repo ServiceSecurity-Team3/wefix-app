@@ -1,13 +1,14 @@
-div class="row" style="vertical-align: bottom;"
-  div class="col-xs-9"
-    h3 All Groups
-  div class="col-xs-3"
-table class="table"
-  thead
-    tr
-      th Repo URL
-  tbody
-    - groups.all.each do |proj|
+div class="container"
+  div class="row" style="vertical-align: bottom;"
+    div class="col-xs-9"
+      h3 All Groups
+    div class="col-xs-3"
+  table class="table"
+    thead
       tr
-        td 
-          a href="/account/groups/#{grp.id}" #{grp.name}
+        th Name
+    tbody
+      - groups.all.each do |grp|
+        tr
+          td 
+            a href="/account/groups/#{grp.id}" #{grp.name}
