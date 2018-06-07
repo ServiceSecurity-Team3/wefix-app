@@ -11,7 +11,7 @@ module Wefix
         routing.get(String) do |doc_id|
           if @current_user.logged_in?
             prob_info = GetProblem.new(App.config)
-                                  .call(@current_user, doc_id)
+                                  .call(@current_user, prb_id)
             # puts "PROB: #{prob_info}"
             problem = Problem.new(prob_info)
 

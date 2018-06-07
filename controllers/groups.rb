@@ -8,7 +8,7 @@ module Wefix
     route('groups') do |routing|
       routing.on do
         routing.is do
-          # GET /projects/
+          # GET /groups/
           routing.get do
             if @current_user.logged_in?
               group_list = GetAllGroups.new(App.config).call(@current_user)
