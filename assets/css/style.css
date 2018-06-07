@@ -28,6 +28,8 @@
   background-color: #d9eed3;
   border-color: #d9eed3;
   color: #55b948;
+  position: relative;
+  overflow:scroll;
 }
 
 .header-logo.negative {
