@@ -5,6 +5,7 @@ div class="container"
       h3 
         = "#{current_user.username} : Groups"
     div class="col-xs-3"
+      button type="button" class="btn btn-success" data-toggle="modal" data-target="#newGroupModal" + New Project
   table class="table"
     thead
       tr
@@ -14,3 +15,4 @@ div class="container"
         tr
           td 
             a href = "/groups/#{grp.id}" #{grp.name}
+include :group_new_partial

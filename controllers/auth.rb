@@ -12,9 +12,9 @@ module Wefix
       def gh_oauth_url(config)
         url = config.GH_OAUTH_URL
         client_id = config.GH_CLIENT_ID
-        scope = config.GH_SCOPE
+        #scope = config.GH_SCOPE
 
-        "#{url}?client_id=#{client_id}&scope=#{scope}"
+        #"#{url}?client_id=#{client_id}&scope=#{scope}"
       end
 
       routing.is 'sso_callback' do
