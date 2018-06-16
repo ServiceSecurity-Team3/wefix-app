@@ -23,6 +23,8 @@ module Wefix
                   form: { client_id: @config.GH_CLIENT_ID,
                           client_secret: @config.GH_CLIENT_SECRET,
                           code: code })
+      
+                          puts(challenge_response)
 
       raise unless challenge_response.status < 400
       challenge_response.parse['access_token']
@@ -32,6 +34,7 @@ module Wefix
       response =
         HTTP.post("#{@config.API_URL}/auth/authenticate/sso_account",
                   json: { access_token: access_token })
+                  puts(response)
       response.code == 200 ? response.parse : nil
     end
   end
