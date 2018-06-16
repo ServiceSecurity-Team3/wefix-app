@@ -24,8 +24,6 @@ module Wefix
                         .new(App.config)
                         .call(routing.params['code'])
 
-          puts(sso_account)
-
           current_user = User.new(sso_account['account'],
                                   sso_account['auth_token'])
 
