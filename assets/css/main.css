@@ -61,6 +61,7 @@
  * ------------------------------------------------------------------- */
 html {
     font-size: 10px;
+    font-family: "montserrat-medium", sans-serif;
 }
 
 @media only screen and (max-width: 400px) {
@@ -75,7 +76,7 @@ html, body {
 
 body {
     background: #fdfcfc;
-    font-family: "lora-regular", serif;
+    font-family: "montserrat-medium", sans-serif;
     font-size: 1.7rem;
     font-style: normal;
     font-weight: normal;
@@ -3339,13 +3340,13 @@ html.no-csstransitions .home-content__main {
  *
  * ------------------------------------------------------------------- */
 footer {
-    padding: 1rem 0 6rem;
     font-family: "montserrat-light", sans-serif;
     font-size: 15px;
     line-height: 2;
     text-align: center;
     color: #d6d6d6;
     background: #000;
+    padding: 20px 0;
 }
 
 footer h4 {
@@ -3474,7 +3475,6 @@ footer .row {
  * ## footer bottom
  * --------------------------------------------------------------- */
 .footer-bottom {
-    margin-top: 5.4rem;
     text-align: center;
     font-size: 14px;
 }
@@ -3580,6 +3580,10 @@ footer .row {
     .go-top {
         right: 0;
         bottom: 0;
+    }
+
+    .no-home footer{
+        position: relative!important;
     }
 }
 

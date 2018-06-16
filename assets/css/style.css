@@ -14,8 +14,11 @@
   border: 1px solid transparent;
   border-radius: 4px;
   bottom: 0px;
-  position: fixed;
+  position: relative;
   width: 100%;
+  margin: 20px auto;
+  width: 90%;
+  float: none;
 }
 
 .alert-danger {
@@ -28,8 +31,6 @@
   background-color: #d9eed3;
   border-color: #d9eed3;
   color: #55b948;
-  position: relative;
-  overflow:scroll;
 }
 
 .header-logo.negative {
@@ -154,15 +155,26 @@
 }
 
 .no-home footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
 
 .no-home #html_body {
-  min-height: 100vh;
   overflow: hidden;
   display: block;
   position: relative;
-  padding-bottom: 148px;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.center-block {
+  margin: 0 auto;
+  float: none;
+}
+
+.btn-social {
+  text-align: center!important;
 }

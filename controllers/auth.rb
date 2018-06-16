@@ -12,9 +12,9 @@ module Wefix
       def gh_oauth_url(config)
         url = config.GH_OAUTH_URL
         client_id = config.GH_CLIENT_ID
-        #scope = config.GH_SCOPE
+        scope = config.GH_SCOPE
 
-        #"#{url}?client_id=#{client_id}&scope=#{scope}"
+        "#{url}?client_id=#{client_id}&scope=#{scope}"
       end
 
       routing.is 'sso_callback' do
@@ -42,7 +42,7 @@ module Wefix
         # GET /auth/login
         routing.get do
           view :login, locals: {
-            gh_oauth_url: gh_oauth_url(App.config)
+            gh_oauth_url: gh_oauth_url(App.config),
           }
         end
 
@@ -80,7 +80,9 @@ module Wefix
         routing.is do
           # GET /auth/register
           routing.get do
-            view :register
+            view :register,  locals: {
+              gh_oauth_url: gh_oauth_url(App.config),
+            }
           end
 
           # POST /auth/register

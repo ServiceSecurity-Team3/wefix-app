@@ -1,7 +1,6 @@
 div class="container"
   div class="row"
-    div class="col-sm-4"
-    div class="col-sm-4"
+    div class="col-sm-6 center-block"
       h3 class="text-center" Create an Account
       form action='/auth/register' method='post' id='register-form'
         div class="form-group"
@@ -10,6 +9,7 @@ div class="container"
         div class="form-group"
           label for='email_input' Email
           input type='text' name='email' id='email_input' class="form-control"
-
-        button type='submit' id='registration-confirmation-form-submit' class='submit' value='submit' class="btn btn-primary" register
-    div class="col-sm-4"
+        button type='submit' id='registration-confirmation-form-submit' class='submit' value='submit' class="btn btn-primary col-sm-12" Register
+        a class="btn btn-block btn-social btn-lg btn-github col-sm-12" value='login' href=gh_oauth_url
+          span class = "fa fa-github"
+          == "Github Login"

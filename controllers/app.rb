@@ -24,7 +24,10 @@ module Wefix
       # GET /
       routing.root do
         @smoothscroll = true
-        view 'home', locals: { current_user: @current_user }
+        view 'home', locals: {
+           current_user: @current_user, 
+           smoothscroll: @smoothscroll 
+        }
       end
     end
   end
