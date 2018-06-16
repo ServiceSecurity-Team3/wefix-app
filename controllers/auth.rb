@@ -62,7 +62,7 @@ module Wefix
 
           Session.new(SecureSession.new(session)).set_user(current_user)
           flash[:notice] = "Welcome back #{current_user.username}!"
-          routing.redirect '/'
+          routing.redirect '/groups'
         rescue StandardError
           flash[:error] = 'Username and password did not match our records'
           routing.redirect @login_route
@@ -98,7 +98,7 @@ module Wefix
             VerifyRegistration.new(App.config).call(registration)
 
             flash[:notice] = 'Please check your email for a verification link'
-            routing.redirect '/'
+            routing.redirect @register_route
           rescue StandardError
             flash[:error] = 'Please check username and email'
             routing.redirect @register_route

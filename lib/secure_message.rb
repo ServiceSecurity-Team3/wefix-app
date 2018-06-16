@@ -51,7 +51,9 @@ class SecureMessage
     signer = RbNaCl::SigningKey.new(signing_key)
     signature_raw = signer.sign(message)
 
+    puts object
+
     { data: message,
       signature: Base64.strict_encode64(signature_raw) }
   end
-en
+end

@@ -631,6 +631,9 @@ select {
     border-bottom: 2px solid rgba(0, 0, 0, 0.15);
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    margin: 0;
+    width: 100%;
+    margin-bottom: 20px;
 }
 
 .cl-custom-select {

@@ -178,3 +178,8 @@
 .btn-social {
   text-align: center!important;
 }
+
+.btn {
+  margin-top: 15px;
+  width: 100%;
+}
