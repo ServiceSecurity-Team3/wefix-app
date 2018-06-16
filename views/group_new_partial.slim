@@ -1,14 +1,12 @@
-div id="newGroupModal" class="modal fade" role="dialog"
-  div class="modal-dialog"
-    div class="modal-content"
-      div class="modal-header"
-        h4 New Project
-      div class="modal-body"
-        form role="form" action="/groups" method='post' id='new-group-form'
-          div class="form-group"
-            label for='name_input' Group Name:
-            input type='text' name='name' id='name_input' class="form-control" placeholder="name is required"
-          div class="form-group"
-            label for='group_url_input' Group:
-          button type='submit' id='registration-form-submit' class='submit' value='submit' class="btn btn-success" Create
-button type="button" class="btn btn-default" data-dismiss="modal" Cancel
+div id="newGroupModal" class="emergent-element"
+  h5 New Group
+  form role="form" action="/groups" method='post' id='new-group-form'
+    div class="form-group"
+      label for='name_input' Group Name:
+      input type='text' name='name' id='name_input' class="form-control" placeholder="name is required"
+    div class="form-group"
+      label for='group_url_input' Description:
+      input type='text' name='description' id='description_input' class="form-control" placeholder="description is required"
+    button type='submit' id='registration-form-submit ' class='submit col-sm-5 btn-send' value='submit' class="btn btn-success" Create
+    button type="button" class="btn btn-default new-element col-sm-5" data-dismiss="modal" Cancel
+    div class="clearfix"

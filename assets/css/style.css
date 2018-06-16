@@ -181,5 +181,25 @@
 
 .btn {
   margin-top: 15px;
-  width: 100%;
+}
+
+h5 {
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+.btn-send {
+  color: #fff;
+  background-color: #444;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.emergent-element {
+  display: none;
+  background: #cedbea;
+  border-radius: 10px;
+  padding: 20px;
+}
+.emergent-element form {
+  margin: 0;
 }

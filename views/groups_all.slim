@@ -2,17 +2,21 @@ div class="container"
   div class="row" style="vertical-align: bottom;"
     div class="col-xs-9"
       h3 All Groups
-      h3 
-        = "#{current_user.username} : Groups"
     div class="col-xs-3"
-      button type="button" class="btn btn-success" data-toggle="modal" data-target="#newGroupModal" + New Group
+      button type="button" class="btn btn-success new-element" data-toggle="modal" data-target="#newGroupModal" + New Group
+    div class="row"
+      div class="col-xs-12"
+       include :group_new_partial
+
   table class="table"
     thead
       tr
         th Name
+        th Description
     tbody
       - groups.all.each do |grp|
         tr
           td 
             a href = "/groups/#{grp.id}" #{grp.name}
-include :group_new_partial
+          td 
+            span #{grp.description}

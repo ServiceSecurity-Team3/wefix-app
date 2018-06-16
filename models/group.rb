@@ -1,22 +1,23 @@
 # frozen_string_literal: true
 
-require_relative 'problem'
-require_relative 'user'
-require 'ostruct'
+require_relative "problem"
+require_relative "user"
+require "ostruct"
 
 module Wefix
   # Behaviors of the currently logged in account
-  class Project
-    attr_reader :id, :name, # basic info
-                :owner, :collaborators, :problem, :policies # full details
+  class Group
+    attr_reader :id, :name, :description, # basic info
+                :owner, :collaborators, :problems, :policies # full details
 
     def initialize(info)
-      @id = info['id']
-      @name = info['name']
-      @owner = User.new(info['owner'])
-      @collaborators = process_collaborators(info['collaborators'])
-      @problems = process_problems(info['problems'])
-      @policies = OpenStruct.new(info['policies'])
+      @id = info["id"]
+      @name = info["name"]
+      @description = info["description"]
+      @owner = User.new(info["owner"])
+      @collaborators = process_collaborators(info["collaborators"])
+      @problems = process_problems(info["problems"])
+      @policies = OpenStruct.new(info["policies"])
     end
 
     private
