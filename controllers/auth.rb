@@ -55,7 +55,8 @@ module Wefix
             routing.redirect @login_route
           end
 
-          authenticated = AuthenticateAccount.new(App.config).call(credentials)
+          authenticated = AuthenticateEmailAccount.new(App.config)
+                                                  .call(credentials)
           current_user = User.new(authenticated['account'],
                                   authenticated['auth_token'])
 
