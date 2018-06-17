@@ -194,12 +194,48 @@ h5 {
   border-color: rgba(0,0,0,0.2);
 }
 
-.emergent-element {
+.emergent-element,
+.collaborator-element {
   display: none;
   background: #cedbea;
   border-radius: 10px;
   padding: 20px;
 }
-.emergent-element form {
+.emergent-element form,
+.collaborator-element form {
   margin: 0;
+}
+
+.groups h2 {
+  float: left;
+}
+
+.groups .btn {
+  margin: 10px 0;
+}
+
+.emergent-element .btn,
+.collaborator-element .btn {
+  margin: 10px 5px;
+}
+
+.groups h3{
+  margin-top: 10px;
+  height: 5.4rem;
+  line-height: 5.4rem;
+  float:left;
+  margin: 10px 0;
+}
+
+.right {
+  float: right;
+}
+
+.always-opaque,
+.always-opaque .header-menu-text {
+  background-color: #000!important;
+}
+
+.collaborator-element {
+  background: #effbc2;
 }

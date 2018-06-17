@@ -469,7 +469,12 @@
     })();
 
     $('.new-element').on('click', function (e) {
-        $('#newGroupModal').toggle();
+        $('.emergent-element').toggle();
+        e.preventDefault();
+    });
+
+    $('.new-element-collaborator').on('click', function (e) {
+        $('.collaborator-element').toggle();
         e.preventDefault();
     });
 

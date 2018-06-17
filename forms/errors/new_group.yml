@@ -1,4 +1,4 @@
 en:
   errors:
-    name: 'Group name must be filled'
-    description: 'Description name must be filled'
+    name: 'must be filled'
+    description: 'must be filled'

@@ -1,12 +1,9 @@
-div id="newCollaboratorModal" class="modal fade" role="dialog"
-  div class="modal-dialog"
-    div class="modal-content"
-      div class="modal-header"
-        h4 Add a Collaborator
-      div class="modal-body"
-        form role="form" action="/groups/#{grp_id}/collaborators" method='post' id='new-collaborator-form'
-          div class="form-group"
-            label for='email_input' Email address:
-            input type='text' name='email' id='email_input' class="form-control" placeholder="Email of collaborator"
-          button type='submit' id='registration-form-submit' class='submit' value='submit' class="btn btn-success" Add
-button type="button" class="btn btn-default" data-dismiss="modal" Cancel
+div id="newCollaboratorModal" class="collaborator-element"
+  h5 Add a Collaborator
+  form role="form" action="/groups/#{grp_id}/add_collaborator" method='post' id='new-collaborator-form'
+    div class="form-group"
+      label for='email_input' Email address:
+      input type='text' name='email' id='email_input' class="form-control" placeholder="Email of collaborator"
+    button type='submit' class='submit col-sm-5 btn-send btn' value='submit' Add
+    button type="button" class="btn btn-default new-element-collaborator col-sm-5" Cancel
+    div class="clearfix"

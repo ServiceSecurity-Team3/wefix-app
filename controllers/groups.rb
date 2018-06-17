@@ -29,7 +29,7 @@ module Wefix
             group = Form::NewGroup.call(routing.params)
 
             if group.failure?
-              flash[:error] = "Please enter both name and description"
+              flash[:error] = Form.validation_errors(group)
               routing.redirect @groups_route
             end
 
@@ -37,14 +37,14 @@ module Wefix
               .call(@current_user, group)
 
             routing.redirect @groups_route
-            #rescue StandardError
-            #  flash[:error] = "Ops! something went wrong!"
-            #  routing.redirect @groups_route
+          rescue StandardError
+            flash[:error] = "Ops! something went wrong!"
+            routing.redirect @groups_route
           end
         end
 
         # GET /groups/[grp_id]
-        routing.get(String) do |grp_id|
+        routing.get(Integer) do |grp_id|
           if @current_user.logged_in?
             grp_info = GetGroup.new(App.config).call(@current_user, grp_id)
             group = Group.new(grp_info)
@@ -54,6 +54,46 @@ module Wefix
                            grp_id: grp_id,
                          }
           end
+        end
+
+        # POST /groups/[grp_id]/problems
+        routing.post String, "problems" do |grp_id|
+          if @current_user.logged_in?
+            problem = Form::NewProblem.call(routing.params)
+
+            if problem.failure?
+              flash[:error] = Form.validation_errors(problem)
+              routing.redirect @groups_route + "/" + grp_id
+            end
+
+            new_problem = CreateProblem.new(App.config)
+              .call(@current_user, grp_id, problem)
+
+            routing.redirect "#{@groups_route}/#{grp_id}"
+          end
+        rescue StandardError
+          flash[:error] = "Ops! something went wrong!"
+          routing.redirect "#{@groups_route}/#{grp_id}"
+        end
+
+        # POST /groups/[grp_id]/add_collaborator
+        routing.post String, "add_collaborator" do |grp_id|
+          if @current_user.logged_in?
+            collaborator = Form::AddCollaborator.call(routing.params)
+
+            if collaborator.failure?
+              flash[:error] = Form.validation_errors(collaborator)
+              routing.redirect @groups_route + "/" + grp_id
+            end
+
+            add_collaborator = AddCollaborator.new(App.config)
+              .call(@current_user, grp_id, collaborator)
+
+            routing.redirect "#{@groups_route}/#{grp_id}"
+          end
+        rescue StandardError
+          flash[:error] = "Ops! something went wrong!"
+          routing.redirect "#{@groups_route}/#{grp_id}"
         end
       end
     end

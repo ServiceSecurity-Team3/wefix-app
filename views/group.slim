@@ -1,15 +1,17 @@
-div class="container"
-  h2
-    == "#{group.name}"
-
-  dl
-    div class="row"
-      div class="col-xs-3"
-        dt Group:
+div class="container groups"
+  a href = "/groups" 
+    h2 All Groups > 
+  h2  > #{group.name}
+  div class="clearfix"
+  h3 class="col-sm-5" Problems
+  - if group.policies.can_add_problems
+      button type="button" class="btn btn-success new-element right col-sm-3" + New Problem
+  div class="row"
+    div class="col-sm-12"     
+      include :problem_new_partial
 
   div class="row"
-    div class="col-lg-9"
-      div class="row"
+    div class="col-sm-12"
         table class="table"
           thead
             tr
@@ -18,33 +20,27 @@ div class="container"
             - group.problems.each do |problem|
               tr
                 td #{problem.description}
+
+  h3 class="col-sm-5" Collaborators
+  - if group.policies.can_add_collaborators
+      button type="button" class="btn btn-success new-element-collaborator right col-sm-3" + Add Collaborator
+      div class="clearfix"
       div class="row"
-        div class="col-xs-4"
-          - if group.policies.can_add_probelms
-            button type="button" class="btn btn-success" data-toggle="modal" data-target="#newProblemModal" + New Problem
-      div class="row" style="height:10px;"
-    div class="col-lg-3"
-      div class="panel panel-default"
-        div class="panel-heading" Collaborators
-        div class="panel-body"
-          - if group.collaborators.empty?
-            span class="small" There are no collaborators yet
-          ul class="list-group"
-            li class="list-group-item clearfix"
-                = group.owner.username
-            - group.collaborators.each do |collaborator|
-              li class="list-group-item clearfix"
-                '  #{collaborator.username}
-                - if group.policies.can_remove_collaborators
-                  span class="pull-right"
-                    button type="button" class="btn btn-xs btn-default"
-                      span class="glyphicon glyphicon-remove"
-          - if group.policies.can_add_collaborators
-            button type="button" class="btn btn-success" data-toggle="modal" data-target="#newCollaboratorModal" + Add Collaborator
-
-  include :problem_new_partial
-  include :collaborator_new_partial
-
+        div class="col-sm-12"     
+          include :collaborator_new_partial
+  div class="clearfix"
+  div class="row"
+    ul
+      li 
+        span Owner: #{group.owner.username}
+    - if group.collaborators.empty?
+        span class="small" There are no collaborators yet
+    - else
+      - group.collaborators.each do |collaborator|
+          li
+            span #{collaborator.username}
+          - if group.policies.can_remove_collaborators
+                  
   .row
     .text-center
       - if group.policies.can_edit
