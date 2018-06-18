@@ -23,7 +23,7 @@ module Wefix
     end
 
     def logged_in?
-      not logged_out?
+      !logged_out?
     end
   end
 end

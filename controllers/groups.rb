@@ -14,9 +14,10 @@ module Wefix
               group_list = GetAllGroups.new(App.config).call(@current_user)
               groups = Groups.new(group_list)
 
-              view :groups_all, locals: { 
-                   current_user: @current_user, groups: groups 
-                  }
+              view :groups_all, locals:
+              {
+                current_user: @current_user, groups: groups
+              }
 
             else
               routing.redirect '/auth/login'

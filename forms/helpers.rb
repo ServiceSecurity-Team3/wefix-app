@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# Wefix
 module Wefix
+  # Forms
   module Form
     def self.validation_errors(validation)
       validation.errors.map { |k, v| [k, v].join(' ') }.join('; ')
