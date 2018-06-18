@@ -14,17 +14,17 @@ div class="container groups"
       include :problem_new_partial
 
   div class="row"
-    div class="col-sm-12"
-        table class="table"
-          thead
-            tr
-              th Description
-          tbody
-            - group.problems.each do |problem|
-              javascript:
-                marks_data.push({lat: "#{problem.latitude}",lng: "#{problem.longitude}", title: "#{problem.description}"}) 
-              tr
-                td #{problem.description}
+    table class="table"
+      thead
+        tr
+          th Description
+      tbody
+        - group.problems.each do |problem|
+          javascript:
+            marks_data.push({lat: "#{problem.latitude}",lng: "#{problem.longitude}", title: "#{problem.description}"}) 
+          tr
+            td #{problem.description}
+            
   div class="row"
     h3 class="col-sm-5" Map
     div id="map"
