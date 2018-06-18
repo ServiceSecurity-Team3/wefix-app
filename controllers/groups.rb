@@ -52,6 +52,7 @@ module Wefix
             view :group, locals: {
                            current_user: @current_user, group: group,
                            grp_id: grp_id,
+                           api_key: App.config.GOOGLE_API_KEY,
                          }
           end
         end

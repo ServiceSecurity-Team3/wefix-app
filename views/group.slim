@@ -1,3 +1,6 @@
+script src="/js/groups.js"
+script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=#{api_key}&callback=initMap" 
+
 div class="container groups"
   a href = "/groups" 
     h2 All Groups > 
@@ -18,8 +21,14 @@ div class="container groups"
               th Description
           tbody
             - group.problems.each do |problem|
+              javascript:
+                marks_data.push({lat: "#{problem.latitude}",lng: "#{problem.longitude}", title: "#{problem.description}"}) 
               tr
                 td #{problem.description}
+  div class="row"
+    div class="col-sm-12"
+      h3 class="col-sm-5" Map
+      div id="map"
 
   h3 class="col-sm-5" Collaborators
   - if group.policies.can_add_collaborators

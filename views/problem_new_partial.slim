@@ -4,12 +4,9 @@ div id="newProblemModal" class="emergent-element"
     div class="form-problem"
       label for='description' Description:
       input type='text' name='description' id='description_input' class="form-control" placeholder="Description is required"
-    div class="form-group"
-      label for='latitude' Latitude:
-      input type='text' name='latitude' id='latitude_input' class="form-control" placeholder="Latitude is required"
-    div class="form-group"
-      label for='longitude' Longitude:
-      input type='text' name='longitude' id='longitude_input' class="form-control" placeholder="Longitude is required"
+      div id="map-insert"
+      input type='hidden' name='latitude' id='latitude_input' 
+      input type='hidden' name='longitude' id='longitude_input'
     button type='submit' class='submit col-sm-5 btn-send btn btn-success' value='submit' Create
     button type="button" class="btn btn-default col-sm-5 new-element" Cancel
     div class="clearfix"
