@@ -1,13 +1,11 @@
-var map;
 var marks_data = [];
 var markers = [];
 function initMap() {
-
   // General Map
   var nthu = { lat: 24.794296, lng: 120.992684 };
-  map = new google.maps.Map(
+  var map = new google.maps.Map(
     document.getElementById('map'), { zoom: 15, center: nthu });
-  drop();
+  drop(map);
 
   var insertMap = new google.maps.Map(
     document.getElementById('map-insert'), { zoom: 15, center: nthu });
@@ -30,13 +28,13 @@ function initMap() {
 
 }
 
-function drop() {
+function drop(map) {
   for (var i = 0; i < marks_data.length; i++) {
-    addMarkerWithTimeout(marks_data[i], i * 1000);
+    addMarkerWithTimeout(marks_data[i], i * 1000, map);
   }
 }
 
-function addMarkerWithTimeout(data, timeout) {
+function addMarkerWithTimeout(data, timeout, map) {
   window.setTimeout(function () {
     markers.push(new google.maps.Marker({
       position: {
