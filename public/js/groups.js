@@ -37,7 +37,6 @@ function drop() {
 }
 
 function addMarkerWithTimeout(data, timeout) {
-  console.log(data);
   window.setTimeout(function () {
     markers.push(new google.maps.Marker({
       position: {
