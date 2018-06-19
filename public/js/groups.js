@@ -1,4 +1,3 @@
-var marks_data = [];
 var markers = [];
 function initMap() {
   // General Map

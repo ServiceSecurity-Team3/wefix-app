@@ -1,6 +1,5 @@
-script src="/js/groups.js"
-script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=#{api_key}&callback=initMap" 
-
+javascript:
+  var marks_data = [];
 div class="container groups"
   a href = "/groups" 
     h2 All Groups > 
@@ -59,4 +58,7 @@ div class="container groups"
       - if group.policies.can_leave
         == ' | '
         a href="" leave group
+
+script src="/js/groups.js"
+script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=#{api_key}&callback=initMap" 
         
