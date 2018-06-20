@@ -17,8 +17,8 @@ module Wefix
               groups = Groups.new(group_list)
 
               view :groups_all, locals: {
-                                        current_user: @current_user, groups: groups
-                                        }
+                current_user: @current_user, groups: groups
+              }
             else
               routing.redirect '/auth/login'
             end
@@ -50,10 +50,10 @@ module Wefix
             group = Group.new(grp_info)
 
             view :group, locals: {
-                           current_user: @current_user, group: group,
-                           grp_id: grp_id,
-                           api_key: App.config.GOOGLE_API_KEY
-                                 }
+              current_user: @current_user, group: group,
+              grp_id: grp_id,
+              api_key: App.config.GOOGLE_API_KEY
+            }
           end
         end
 

@@ -69,7 +69,6 @@ module Wefix
         report_uri: %w[/security/report_csp_violation],
       }
     end
-    # rubocop:enable Metrics/BlockLength
 
     route("security") do |routing|
       routing.post 'report_csp_violation 'do
