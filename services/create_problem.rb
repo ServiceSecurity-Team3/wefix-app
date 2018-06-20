@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require "http"
+require 'http'
 
 # Returns an message with group information
 class CreateProblem
   # Error for inability of API to create group
   class InvalidProblem < StandardError
     def message
-      "This Problem can no longer be created: please start again"
+      'This Problem can no longer be created: please start again'
     end
   end
 
@@ -22,7 +22,7 @@ class CreateProblem
             json: {
               description: description,
               latitude: latitude,
-              longitude: longitude,
+              longitude: longitude
             })
     raise InvalidProblem unless response.code == 201
   end
