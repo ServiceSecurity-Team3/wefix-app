@@ -10,7 +10,7 @@ module Wefix
       required(:description).filled
 
       configure do
-        config.messages_file = File.join(__dir__, 'errors/new_group.ym'l)
+        config.messages_file = File.join(__dir__, 'errors/new_group.yml')
       end
     end
   end

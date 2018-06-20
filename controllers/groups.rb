@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require "roda"
+require 'roda'
 
 module Wefix
   # Web controller for Wefix API
   class App < Roda
-    route("groups") do |routing|
-      @groups_route = "/groups"
+    route('groups') do |routing|
+      @groups_route = '/groups'
 
       routing.on do
         routing.is do
@@ -17,10 +17,10 @@ module Wefix
               groups = Groups.new(group_list)
 
               view :groups_all, locals: {
-                                  current_user: @current_user, groups: groups,
-                                }
+                                          current_user: @current_user, groups: groups,
+                                        }
             else
-              routing.redirect "/auth/login"
+              routing.redirect '/auth/login'
             end
           end
 
@@ -38,7 +38,7 @@ module Wefix
 
             routing.redirect @groups_route
           rescue StandardError
-            flash[:error] = "Ops! something went wrong!"
+            flash[:error] = 'Ops! something went wrong!'
             routing.redirect @groups_route
           end
         end
@@ -52,19 +52,19 @@ module Wefix
             view :group, locals: {
                            current_user: @current_user, group: group,
                            grp_id: grp_id,
-                           api_key: App.config.GOOGLE_API_KEY,
-                         }
+                           api_key: App.config.GOOGLE_API_KEY
+                                 }
           end
         end
 
         # POST /groups/[grp_id]/problems
-        routing.post String, "problems" do |grp_id|
+        routing.post String, 'problems' do |grp_id|
           if @current_user.logged_in?
             problem = Form::NewProblem.call(routing.params)
 
             if problem.failure?
               flash[:error] = Form.validation_errors(problem)
-              routing.redirect @groups_route + "/" + grp_id
+              routing.redirect @groups_route + '/' + grp_id
             end
 
             new_problem = CreateProblem.new(App.config)
@@ -73,7 +73,7 @@ module Wefix
             routing.redirect "#{@groups_route}/#{grp_id}"
           end
         rescue StandardError
-          flash[:error] = "Ops! something went wrong!"
+          flash[:error] = 'Ops! something went wrong!'
           routing.redirect "#{@groups_route}/#{grp_id}"
         end
 
@@ -84,11 +84,11 @@ module Wefix
 
             if collaborator.failure?
               flash[:error] = Form.validation_errors(collaborator)
-              routing.redirect @groups_route + "/" + grp_id
+              routing.redirect @groups_route + '/' + grp_id
             end
 
             add_collaborator = AddCollaborator.new(App.config)
-              .call(@current_user, grp_id, collaborator)
+                                              .call(@current_user, grp_id, collaborator)
 
             routing.redirect "#{@groups_route}/#{grp_id}"
           end
