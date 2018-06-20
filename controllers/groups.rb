@@ -78,7 +78,7 @@ module Wefix
         end
 
         # POST /groups/[grp_id]/add_collaborator
-        routing.post String, "add_collaborator" do |grp_id|
+        routing.post String, 'add_collaborator' do |grp_id|
           if @current_user.logged_in?
             collaborator = Form::AddCollaborator.call(routing.params)
 
@@ -93,7 +93,7 @@ module Wefix
             routing.redirect "#{@groups_route}/#{grp_id}"
           end
         rescue StandardError
-          flash[:error] = "Ops! something went wrong!"
+          flash[:error] = 'Ops! something went wrong!'
           routing.redirect "#{@groups_route}/#{grp_id}"
         end
       end
