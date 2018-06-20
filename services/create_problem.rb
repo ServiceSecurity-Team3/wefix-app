@@ -18,12 +18,12 @@ class CreateProblem
   # Create group with group_data
   def call(user, grp_id, description:, latitude:, longitude:)
     response = HTTP.auth("Bearer #{user.auth_token}")
-                   .post("#{@config.API_URL}/groups/#{grp_id}/problems",
-                    json: {
-                      description: description,
-                      latitude: latitude,
-                      longitude: longitude
-                    })
+      .post("#{@config.API_URL}/groups/#{grp_id}/problems",
+        json: {
+          description: description,
+          latitude: latitude,
+          longitude: longitude
+        })
     raise InvalidProblem unless response.code == 201
   end
 end

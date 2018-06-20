@@ -53,20 +53,20 @@ module Wefix
 
       # note: single-quotes needed around 'self' and 'none' in CSPs
       config.csp = {
-        report_only: false
-        preserve_schemes: true
-        default_src: %w['self']
-        child_src: %w['self']
-        connect_src: %w[wws:]
-        img_src: %w['self' https://maps.gstatic.com https://maps.googleapis.com]
-        font_src: %w['self' https://maxcdn.bootstrapcdn.com https://fonts.gstatic.com]
-        script_src: %w['self' 'unsafe-inline' https://code.jquery.com https://maxcdn.bootstrapcdn.com https://maps.googleapis.com]
-        style_src: %w['self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com https://cdnjs.cloudflare.com https://fonts.googleapis.com]
-        form_action: %w['self']
-        frame_ancestors: %w['none']
-        object_src: %w['none']
-        block_all_mixed_content: true
-        report_uri: %w[/security/report_csp_violation]
+        report_only: false,
+        preserve_schemes: true,
+        default_src: %w['self'],
+        child_src: %w['self'],
+        connect_src: %w[wws:],
+        img_src: %w['self' https://maps.gstatic.com https://maps.googleapis.com],
+        font_src: %w['self' https://maxcdn.bootstrapcdn.com https://fonts.gstatic.com],
+        script_src: %w['self' 'unsafe-inline' https://code.jquery.com https://maxcdn.bootstrapcdn.com https://maps.googleapis.com],
+        style_src: %w['self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com https://cdnjs.cloudflare.com https://fonts.googleapis.com],
+        form_action: %w['self'],
+        frame_ancestors: %w['none'],
+        object_src: %w['none'],
+        block_all_mixed_content: true,
+        report_uri: %w[/security/report_csp_violation],
       }
     end
     # rubocop:enable Metrics/BlockLength
