@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative "problem"
-require_relative "user"
-require "ostruct"
+require_relative 'problem'
+require_relative 'user'
+require 'ostruct'
 
 module Wefix
   # Behaviors of the currently logged in account
