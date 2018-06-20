@@ -17,7 +17,7 @@ module Wefix
               groups = Groups.new(group_list)
 
               view :groups_all, locals: {
-                                          current_user: @current_user, groups: groups,
+                                        current_user: @current_user, groups: groups
                                         }
             else
               routing.redirect '/auth/login'
@@ -33,8 +33,8 @@ module Wefix
               routing.redirect @groups_route
             end
 
-            new_group = CreateGroup.new(App.config)
-              .call(@current_user, group)
+            CreateGroup.new(App.config)
+                       .call(@current_user, group)
 
             routing.redirect @groups_route
           rescue StandardError
@@ -67,8 +67,8 @@ module Wefix
               routing.redirect @groups_route + '/' + grp_id
             end
 
-            new_problem = CreateProblem.new(App.config)
-              .call(@current_user, grp_id, problem)
+            CreateProblem.new(App.config)
+                         .call(@current_user, grp_id, problem)
 
             routing.redirect "#{@groups_route}/#{grp_id}"
           end
@@ -87,8 +87,8 @@ module Wefix
               routing.redirect @groups_route + '/' + grp_id
             end
 
-            add_collaborator = AddCollaborator.new(App.config)
-                                              .call(@current_user, grp_id, collaborator)
+            AddCollaborator.new(App.config)
+                           .call(@current_user, grp_id, collaborator)
 
             routing.redirect "#{@groups_route}/#{grp_id}"
           end

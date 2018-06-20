@@ -36,7 +36,6 @@ module Wefix
     # use Rack::Protection, reaction: :drop_session
     use SecureHeaders::Middleware
 
-    # rubocop:disable Metrics/BlockLength
     SecureHeaders::Configuration.default do |config|
       config.cookies = {
         secure: true,

@@ -9,7 +9,8 @@ module Wefix
   class App < Roda
     plugin :render, engine: 'slim', views: 'views'
     plugin :assets, css: ['bootstrap.css', 'base.css', 'vendor.css', 'main.css', 'style.css']
-            js: ['modernizr.js', 'pace.min.js'], path: 'assets'
+            js: ['modernizr.js', 'pace.min.js']
+            path: 'assets'
     plugin :public, root: 'public'
     plugin :multi_route
     plugin :flash
