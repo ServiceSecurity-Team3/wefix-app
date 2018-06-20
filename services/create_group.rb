@@ -7,7 +7,7 @@ class CreateGroup
   # Error for inability of API to create group
   class InvalidGroup < StandardError
     def message
-      "This group can no longer be created: please start again"
+      'This group can no longer be created: please start again'
     end
   end
 
@@ -21,7 +21,7 @@ class CreateGroup
       .post("#{@config.API_URL}/groups/",
             json: {
               name: name,
-              description: description,
+              description: description
             })
     raise InvalidGroup unless response.code == 201
   end
