@@ -18,10 +18,10 @@ class AddCollaborator
   # Create group with group_data
   def call(user, grp_id, email:)
     response = HTTP.auth("Bearer #{user.auth_token}")
-      .post("#{@config.API_URL}/groups/#{grp_id}/add_collaborator",
-            json: {
-              email: email
-            })
+                   .post("#{@config.API_URL}/groups/#{grp_id}/add_collaborator",
+                    json: {
+                      email: email
+                    })
     raise InvalidCollaborator unless response.code == 200
   end
 end
