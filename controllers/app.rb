@@ -8,9 +8,7 @@ module Wefix
   # Base class for Wefix Web Application
   class App < Roda
     plugin :render, engine: 'slim', views: 'views'
-    plugin :assets, css: ['bootstrap.css', 'base.css', 'vendor.css', 'main.css', 'style.css']
-            js: ['modernizr.js', 'pace.min.js']
-            path: 'assets'
+    plugin :assets, css: ['bootstrap.css', 'base.css', 'vendor.css', 'main.css', 'style.css'], js: ['modernizr.js', 'pace.min.js'], path: 'assets'
     plugin :public, root: 'public'
     plugin :multi_route
     plugin :flash
@@ -26,8 +24,8 @@ module Wefix
       routing.root do
         @smoothscroll = true
         view 'home', locals: {
-           current_user: @current_user,
-           smoothscroll: @smoothscroll
+          current_user: @current_user,
+          smoothscroll: @smoothscroll
         }
       end
     end
