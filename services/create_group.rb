@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "http"
+require 'http'
 
 # Returns an message with group information
 class CreateGroup

@@ -42,7 +42,7 @@ module Wefix
         # GET /auth/login
         routing.get do
           view :login, locals: {
-            gh_oauth_url: gh_oauth_url(App.config),
+            gh_oauth_url: gh_oauth_url(App.config)
           }
         end
 
@@ -82,7 +82,7 @@ module Wefix
           # GET /auth/register
           routing.get do
             view :register,  locals: {
-              gh_oauth_url: gh_oauth_url(App.config),
+              gh_oauth_url: gh_oauth_url(App.config)
             }
           end
 
