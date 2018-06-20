@@ -5,7 +5,6 @@ require 'roda'
 module Wefix
   # Web controller for Wefix API
   class App < Roda
-    # rubocop:disable Metrics/BlockLength
     route('account') do |routing|
       routing.on do
         # GET /account/[username]
@@ -50,6 +49,5 @@ module Wefix
         end
       end
     end
-    # rubocop:enable Metrics/BlockLength
   end
 end

@@ -23,3 +23,15 @@ Style/SymbolArray:
   Exclude:
     - db/migrations/**/*
     - Rakefile
+
+Metrics/MethodLength:
+  Max: 1000
+
+Metrics/LineLength:
+  Max: 150
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 70
