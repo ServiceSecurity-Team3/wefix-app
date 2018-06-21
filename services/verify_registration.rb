@@ -12,10 +12,10 @@ module Wefix
     end
 
     def call(username:, email:)
-      registration_token = SecureMessage.encrypt({username: username, email: email});
+      registration_token = SecureMessage.encrypt(username: username, email: email)
       verification_url = "#{@config.APP_URL}/auth/register/#{registration_token}"
       registration_data = {
-        username: username, 
+        username: username,
         email: email,
         verification_url: verification_url
       }

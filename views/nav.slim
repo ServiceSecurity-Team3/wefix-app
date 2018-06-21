@@ -50,7 +50,6 @@ header.s-header class=(@smoothscroll ? '' : 'position-relative')
   
 javascript:
    function signOut() {
-     GoogleAuth.signOut().then(function () {
-       console.log('User signed out.');
-     });
+     gapi.auth.setToken(null);
+     gapi.auth.signOut();
    }

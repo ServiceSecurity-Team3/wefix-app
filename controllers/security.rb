@@ -36,7 +36,6 @@ module Wefix
     # use Rack::Protection, reaction: :drop_session
     use SecureHeaders::Middleware
 
-    # rubocop:disable Metrics/BlockLength
     SecureHeaders::Configuration.default do |config|
       config.cookies = {
         secure: true,
@@ -70,10 +69,9 @@ module Wefix
         report_uri: %w[/security/report_csp_violation],
       }
     end
-    # rubocop:enable Metrics/BlockLength
 
     route("security") do |routing|
-      routing.post "report_csp_violation" do
+      routing.post 'report_csp_violation 'do
         puts "CSP VIOLATION: #{request.body.read}"
       end
     end

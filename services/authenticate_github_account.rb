@@ -23,7 +23,7 @@ module Wefix
                   json: { client_id: @config.GH_CLIENT_ID,
                           client_secret: @config.GH_CLIENT_SECRET,
                           code: code })
-      
+
       raise unless challenge_response.status < 400
       challenge_response.parse['access_token']
     end
