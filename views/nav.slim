@@ -54,9 +54,10 @@ javascript:
         var auth2 = gapi.auth2.init();
         auth2.then(function() {
           var isSignedIn = auth2.isSignedIn.get();
-          if (!isSignedIn) {
+          if (isSignedIn) {
             gapi.auth2.getAuthInstance().disconnect();
           }
+          window.location.href = "/auth/logout";
        });
       });
    }

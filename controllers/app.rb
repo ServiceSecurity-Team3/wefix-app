@@ -18,6 +18,7 @@ module Wefix
 
     route do |routing|
       @current_user = Session.new(SecureSession.new(session)).wget_user
+      @google_token = App.config.GOOGLE_CLIENT_ID
 
       routing.public
       routing.assets
@@ -28,6 +29,7 @@ module Wefix
         @smoothscroll = true
         view "home", locals: {
                        current_user: @current_user,
+                       google_token: @google_token,
                        smoothscroll: @smoothscroll,
                      }
       end
