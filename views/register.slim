@@ -10,6 +10,15 @@ div class="container"
           label for='email_input' Email
           input type='text' name='email' id='email_input' class="form-control"
         button type='submit' id='registration-confirmation-form-submit' class='submit' value='submit' class="btn btn-primary col-sm-12" Register
-        a class="btn btn-block btn-social btn-lg btn-github col-sm-12" value='login' href=gh_oauth_url
-          span class = "fa fa-github"
-          == "Github Login"
+        div class = "col-md-12 social-login"
+          a class="btn btn-block btn-social btn-github col-sm-6 abcRioButtonContents" value='login' href=gh_oauth_url style="text-transform:none; font-size: 16px; line-height: 51px; padding-right: 0px;"
+            span class = "fa fa-github" style = "padding-top: 7px; width:52px"
+            == "Sign in with GitHub"
+          .g-signin2 data-onsuccess="onSignIn" data-theme="dark" data-width="250" data-height="53" data-longtitle="true"
+            javascript:
+               function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                var id_token = googleUser.getAuthResponse().id_token;
+                window.location.href = "google_callback?token_id=" + id_token;
+              };
+              
