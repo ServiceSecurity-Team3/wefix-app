@@ -250,3 +250,20 @@ h5 {
 .groups {
   margin-bottom: 100px;
 }
+
+.social-login {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+
+.g-signin2{
+  margin-top: 15px;
+  font-family: "montserrat-medium", sans-serif!important;
+}
+
+.abcRioButton.abcRioButtonBlue {
+  height: 55;
+  width: 200px;
+}
