@@ -1,3 +1,6 @@
+
+
+
 div class="container"
   div class="row"
     div class="col-sm-6 center-block"
@@ -13,4 +16,11 @@ div class="container"
         a class="btn btn-block btn-social btn-lg btn-github col-sm-12" value='login' href=gh_oauth_url
           span class = "fa fa-github"
           == "Github Login"
-          
+
+.g-signin2 data-onsuccess="onSignIn" data-theme="dark" 
+javascript:
+   function onSignIn(googleUser) {
+     var profile = googleUser.getBasicProfile();
+     var id_token = googleUser.getAuthResponse().id_token;
+     window.location.href = "google_callback?token_id=" + id_token;
+   };
