@@ -1,7 +1,5 @@
 
-meta content="profile email" name="google-signin-scope"
-meta content="715502319425-7rd1g44fn90pj5p40872ro9ute3tn6tv.apps.googleusercontent.com" name="google-signin-client_id"
-script async="" defer="" src="https://apis.google.com/js/platform.js" 
+
 
 div class="container"
   div class="row"
@@ -23,16 +21,6 @@ div class="container"
 javascript:
    function onSignIn(googleUser) {
      var profile = googleUser.getBasicProfile();
-     console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-     console.log('Full Name: ' + profile.getName());
-     console.log('Given Name: ' + profile.getGivenName());
-     console.log('Family Name: ' + profile.getFamilyName());
-     console.log("Image URL: " + profile.getImageUrl());
-     console.log("Email: " + profile.getEmail());
-
      var id_token = googleUser.getAuthResponse().id_token;
-     console.log("ID Token: " + id_token);
+     window.location.href = "google_callback?token_id=" + id_token;
    };
-
-
-          

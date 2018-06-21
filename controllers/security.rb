@@ -58,7 +58,7 @@ module Wefix
         preserve_schemes: true,
         default_src: %w['self'],
         child_src: %w['self' https://accounts.google.com],
-        connect_src: %w[wws:],
+        connect_src: %w['self'],
         img_src: %w['self' https://maps.gstatic.com https://maps.googleapis.com],
         font_src: %w['self' https://maxcdn.bootstrapcdn.com https://fonts.gstatic.com],
         script_src: %w['self' 'unsafe-inline' https://code.jquery.com https://maxcdn.bootstrapcdn.com https://maps.googleapis.com https://apis.google.com],

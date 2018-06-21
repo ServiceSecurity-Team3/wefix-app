@@ -24,9 +24,9 @@ header.s-header class=(@smoothscroll ? '' : 'position-relative')
           li
             a href="/groups" Groups
           li
-            a href="/account/#{@current_user.username}" Account
+            a href="/account/#{@current_user.username}" Account 
           li
-            a href='/auth/logout' Logout
+            a href='/auth/logout' onclick="signOut();" Logout 
         - else
           li
             a href='/auth/login' Login
@@ -47,3 +47,10 @@ header.s-header class=(@smoothscroll ? '' : 'position-relative')
   a.header-menu-toggle class=(@smoothscroll ? '' : 'always-opaque') href="#0" 
     span.header-menu-text Menu
     span.header-menu-icon
+  
+javascript:
+   function signOut() {
+     GoogleAuth.signOut().then(function () {
+       console.log('User signed out.');
+     });
+   }

@@ -41,9 +41,9 @@ module Wefix
       routing.is "google_callback" do
         # GET /auth/sso_callback
         routing.get do
-          sso_account = AuthenticateGithubAccount
+          sso_account = AuthenticateGoogleAccount
             .new(App.config)
-            .call(routing.params["code"])
+            .call(routing.params["token_id"])
 
           current_user = User.new(sso_account["account"],
                                   sso_account["auth_token"])
