@@ -27,7 +27,7 @@ module Wefix
           current_user = User.new(sso_account["account"],
                                   sso_account["auth_token"])
 
-          Session.new(SecureSession.new(session)).set_user(current_user)
+          Session.new(SecureSession.new(session)).wset_user(current_user)
           flash[:notice] = "Welcome #{current_user.username}!"
           routing.redirect "/groups"
         rescue StandardError => error
@@ -41,20 +41,20 @@ module Wefix
       routing.is "google_callback" do
         # GET /auth/sso_callback
         routing.get do
-          sso_account = AuthenticateGithubAccount
+          sso_account = AuthenticateGoogleAccount
             .new(App.config)
-            .call(routing.params["code"])
+            .call(routing.params["token_id"])
 
           current_user = User.new(sso_account["account"],
                                   sso_account["auth_token"])
 
-          Session.new(SecureSession.new(session)).set_user(current_user)
+          Session.new(SecureSession.new(session)).wset_user(current_user)
           flash[:notice] = "Welcome #{current_user.username}!"
           routing.redirect "/groups"
         rescue StandardError => error
           puts error.inspect
           puts error.backtrace
-          flash[:error] = "Could not sign in using Github"
+          flash[:error] = "Could not sign in using Google"
           routing.redirect @login_route
         end
       end
@@ -81,7 +81,7 @@ module Wefix
           current_user = User.new(authenticated["account"],
                                   authenticated["auth_token"])
 
-          Session.new(SecureSession.new(session)).set_user(current_user)
+          Session.new(SecureSession.new(session)).wset_user(current_user)
           flash[:notice] = "Welcome back #{current_user.username}!"
           routing.redirect "/groups"
         rescue StandardError
