@@ -29,9 +29,17 @@ Metrics/MethodLength:
 
 Metrics/LineLength:
   Max: 150
+  Exclude:
+    - controllers/security.rb
 
 Style/RegexpLiteral:
   Enabled: false
 
 Metrics/BlockLength:
   Max: 70
+
+Lint/PercentStringArray:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false

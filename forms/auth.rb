@@ -29,7 +29,7 @@ module Wefix
       required(:password).filled
       required(:password_confirm).filled
 
-      rule(password_entropy: [:password]) do |password|
+      rule(password_entropy: [:password]) do
         password.enough_entropy?
       end
 

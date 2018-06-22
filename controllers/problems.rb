@@ -8,7 +8,7 @@ module Wefix
     route('problems') do |routing|
       routing.on do
         # GET /problems/
-        routing.get(String) do |doc_id|
+        routing.get(String) do
           if @current_user.logged_in?
             prob_info = GetProblem.new(App.config)
                                   .call(@current_user, prb_id)

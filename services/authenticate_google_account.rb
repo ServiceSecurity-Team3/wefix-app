@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "http"
+require 'http'
 
 module Wefix
   # Returns an authenticated user, or nil
@@ -16,7 +16,7 @@ module Wefix
     private
 
     def get_sso_account_from_api(access_token)
-      sso_info = {access_token: access_token}
+      sso_info = { access_token: access_token }
       signed_sso_info = SecureMessage.sign(sso_info)
       response =
         HTTP.post("#{@config.API_URL}/auth/authenticate/gsso_account",
