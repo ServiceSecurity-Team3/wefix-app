@@ -18,11 +18,11 @@ class CreateGroup
   # Create group with group_data
   def call(user, name:, description:)
     response = HTTP.auth("Bearer #{user.auth_token}")
-      .post("#{@config.API_URL}/groups/",
-        json: {
-          name: name,
-          description: description
-        })
+                   .post("#{@config.API_URL}/groups/",
+                         json: {
+                           name: name,
+                           description: description
+                         })
     raise InvalidGroup unless response.code == 201
   end
 end
